@@ -1,8 +1,9 @@
 import { combineEpics } from 'redux-observable';
-import imgsEpic from './imgs/epics';
+import { imgsEpic, imgsActiveIntervalEpic } from './imgs/epics';
 
 const epics = [
   imgsEpic,
+  imgsActiveIntervalEpic
 ];
 
 const epicsRoots = combineEpics(...epics);

@@ -5,7 +5,7 @@ import * as imgsActions from 'store/modules/imgs/actions';
 import { HomeWrapper, LoadingWrapper } from './HomeStyled';
 import ListImgs from 'components/listImgs/ListImgs';
 
-const Home = ({ imgsReducer, imgsRequest }) => {
+const Home = ({ imgsReducer, imgsRequest, imgsActiveInterval }) => {
   
   useEffect(() => {
     const requestImgs = async () => {
@@ -14,7 +14,7 @@ const Home = ({ imgsReducer, imgsRequest }) => {
     requestImgs();
   }, [imgsRequest]);
 
-  const { load, imgs } = imgsReducer;
+  const { load, imgs, imgsActive } = imgsReducer;
 
   return (
     <HomeWrapper>
@@ -25,7 +25,7 @@ const Home = ({ imgsReducer, imgsRequest }) => {
           <h3>Loading...</h3>
         </LoadingWrapper>
         :
-        <ListImgs imgs={imgs} />
+        <ListImgs imgs={imgs} imgsActiveInterval={imgsActiveInterval} imgsActive={imgsActive} />
       }
     </HomeWrapper>
   );
