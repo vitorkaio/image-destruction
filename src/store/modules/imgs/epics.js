@@ -74,13 +74,6 @@ export const imgsActiveIntervalEpic = (action$, store) => action$.pipe(
   mergeMap(async (action) => {
 
     const { payload } = action;
-   /*  const imgInterval = [...store.value.imgsReducer.imgsActive];
-
-    if (imgInterval.length !== 0) {
-      return imgsActions.imgsActiveInterval("");
-    } */
-    
-    // if (imgInterval.filter((item) => item.data.id === payload.img.id))
 
     const timer = store.value.imgsReducer.timer;
 
@@ -89,6 +82,8 @@ export const imgsActiveIntervalEpic = (action$, store) => action$.pipe(
       active: false,
       timer,
     }
+
+    stores.dispatch(imgsActions.imgSelected(img));
 
     const intervalID = startInterval(img.data.id, 1e3);
 

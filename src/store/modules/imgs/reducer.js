@@ -5,7 +5,8 @@ const imgsInitial = {
   load: false,
   error: false,
   imgsActive: [],
-  timer: 10
+  timer: 10,
+  imgSelected: null
 };
 
 const imgsReducer = (state = imgsInitial, action) => {
@@ -34,7 +35,7 @@ const imgsReducer = (state = imgsInitial, action) => {
       imgs.push(action.payload.img);
       
       return {
-        ...state, imgsActive: [...imgs]
+        ...state, imgsActive: [...imgs], imgSelected: action.payload.img
       }
     }
 
@@ -45,6 +46,18 @@ const imgsReducer = (state = imgsInitial, action) => {
 
       return {
         ...state, imgsActive: [...imgs]
+      }
+    }
+
+    case typeActions.IMG_SELECTED: {
+      return {
+        ...state, imgSelected: action.payload.img
+      }
+    }
+
+    case typeActions.IMG_DESELECT: {
+      return {
+        ...state, imgSelected: null
       }
     }
 

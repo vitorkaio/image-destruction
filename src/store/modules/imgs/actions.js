@@ -11,3 +11,5 @@ export const imgsActiveIntervalSuccess = (img) => action(typeActions.IMGS_ACTIVE
 export const imgsUpdateInterval = (img) => action(typeActions.IMGS_UPDATE_INTERVAL, { img });
 export const imgsRemoveInterval = (id) => action(typeActions.IMGS_REMOVE_INTERVAL, { id });
 
+export const imgSelected = (img) => action(typeActions.IMG_SELECTED, { img });
+export const imgDeselect = () => action(typeActions.IMG_DESELECT);
