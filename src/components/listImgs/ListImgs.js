@@ -5,7 +5,7 @@ import { faFire } from '@fortawesome/free-solid-svg-icons';
 
 import { IconFireOffColor, IconFireOnColor } from 'components/ui/Colors';
 
-const ListImgs = ({ imgs, imgsActiveInterval, imgsActive, imgSelected }) => {
+const ListImgs = ({ imgs, imgsActiveInterval, imgsActive }) => {
 
   const [colorIconActive, setColorIconActive] = useState("");
 
