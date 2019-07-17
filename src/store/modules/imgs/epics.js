@@ -74,6 +74,15 @@ export const imgsActiveIntervalEpic = (action$, store) => action$.pipe(
   mergeMap(async (action) => {
 
     const { payload } = action;
+    
+
+    // Verifica se a img selecionada já está ativada.
+    const imgs = [...stores.getState().imgsReducer.imgsActive];
+    const index = imgs.map((item) => item.data.id).indexOf(payload.img.id);
+    
+    if (index !== -1) {
+      return imgsActions.imgSelected(imgs[index])
+    }
 
     const timer = store.value.imgsReducer.timer;
 

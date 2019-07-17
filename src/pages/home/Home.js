@@ -6,7 +6,7 @@ import { HomeWrapper, LoadingWrapper } from './HomeStyled';
 import ListImgs from 'components/listImgs/ListImgs';
 import ModalImg from 'components/modalImg/ModalImg';
 
-const Home = ({ imgsReducer, imgsRequest, imgsActiveInterval, imgDeselect }) => {
+const Home = ({ imgsReducer, imgsRequest, imgsActiveInterval }) => {
 
   const [openModal, setOpenModal] = useState(false);
 
@@ -26,10 +26,6 @@ const Home = ({ imgsReducer, imgsRequest, imgsActiveInterval, imgDeselect }) => 
   }, [imgsRequest]);
 
   
- const imgDeselectHandler = () => {
-  imgDeselect();
- }
-
   const { load, imgs, imgsActive, imgSelected } = imgsReducer;
 
   const showListImg = () => {
@@ -43,7 +39,6 @@ const Home = ({ imgsReducer, imgsRequest, imgsActiveInterval, imgDeselect }) => 
           imgSelected && openModal
           ?
           <ModalImg imgSelected={imgSelected} 
-            imgDeselectHandler={imgDeselectHandler}
             closeModalHandler={closeModalHandler} />
           :
           null

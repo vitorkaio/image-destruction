@@ -33,9 +33,12 @@ const imgsReducer = (state = imgsInitial, action) => {
       const index = imgs.map((item) => item.data.id).indexOf(action.payload.img.data.id);
       imgs.splice(index, 1);
       imgs.push(action.payload.img);
+
+      const imgActiveSelected = state.imgSelected;
+      const updateImageSelected =  action.payload.img.data.id === imgActiveSelected.data.id ? action.payload.img : imgActiveSelected
       
       return {
-        ...state, imgsActive: [...imgs], imgSelected: action.payload.img
+        ...state, imgsActive: [...imgs], imgSelected: updateImageSelected
       }
     }
 
