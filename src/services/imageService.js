@@ -23,6 +23,7 @@ class ImageService {
       .then(res => res.json())
       .then(data => {
         // console.log(data);
+        // this.unsplash.search.photos("girls", 1, 15) results
         resolve(data);
       });
     }).catch(error => {

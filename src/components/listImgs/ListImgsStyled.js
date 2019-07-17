@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { backgroundColorPrimary } from 'components/ui/Colors';
+import { BackgroundColorPrimary, PrimaryColor } from 'components/ui/Colors';
 
 export const ListImgsWrapper = styled.div`
   flex: 1;
@@ -14,7 +14,7 @@ export const ImgWrapper = styled.div`
   margin: 1rem;
   width: 200px;
   height: 200px;
-  border: 2px solid cornflowerblue;
+  border: 2px solid ${PrimaryColor};
   border-radius: 10px;
 
   display: flex;
@@ -43,7 +43,7 @@ export const IconWrapper = styled.div`
   position: absolute;
   z-index: 99;
 
-  border: 2px solid cornflowerblue;
+  border: 2px solid ${PrimaryColor};
   border-radius: 50%;
   width: 60px;
   height: 60px;
@@ -52,13 +52,13 @@ export const IconWrapper = styled.div`
   justify-content: center;
   align-items: center;
 
-  background-color: ${backgroundColorPrimary};
+  background-color: ${BackgroundColorPrimary};
 `;
 
 export const TimerWrapper = styled.div`
   position: absolute;
   z-index: 99;
-  border: 2px solid cornflowerblue;
+  border: 2px solid ${PrimaryColor};
   border-radius: 50%;
   width: 60px;
   height: 60px;
@@ -67,11 +67,11 @@ export const TimerWrapper = styled.div`
   justify-content: center;
   align-items: center;
 
-  background-color: ${backgroundColorPrimary};
+  background-color: ${BackgroundColorPrimary};
 `;
 
 export const TimerTextWrapper = styled.span`
-  color: cornflowerblue;
+  color: ${PrimaryColor};
   font-weight: bold;
   font-size: 1.7rem;
 `;

@@ -5,7 +5,7 @@ const imgsInitial = {
   load: false,
   error: false,
   imgsActive: [],
-  timer: 10,
+  timer: 15,
   imgSelected: null
 };
 
@@ -35,7 +35,7 @@ const imgsReducer = (state = imgsInitial, action) => {
       imgs.push(action.payload.img);
 
       const imgActiveSelected = state.imgSelected;
-      const updateImageSelected =  action.payload.img.data.id === imgActiveSelected.data.id ? action.payload.img : imgActiveSelected
+      const updateImageSelected =  action.payload.img.data.id === imgActiveSelected.data.id ? action.payload.img : imgActiveSelected;
       
       return {
         ...state, imgsActive: [...imgs], imgSelected: updateImageSelected

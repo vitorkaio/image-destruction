@@ -2,5 +2,7 @@
 
 export const IconFireOffColor = "coral"; 
 export const IconFireOnColor = "cornflowerblue"; 
-
-export const backgroundColorPrimary = '#f5f5f5';
+export const BackgroundColorPrimary = "#FFF";
+export const PrimaryColor = "cornflowerblue";
+export const SecundaryColor = "coral";
+export const BorderColor = "#eee";
