@@ -1,4 +1,4 @@
-import React, { useEffect }  from 'react';
+import React, { useEffect, useState }  from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as imgsActions from 'store/modules/imgs/actions';
@@ -6,7 +6,17 @@ import { HomeWrapper, LoadingWrapper } from './HomeStyled';
 import ListImgs from 'components/listImgs/ListImgs';
 import ModalImg from 'components/modalImg/ModalImg';
 
-const Home = ({ imgsReducer, imgsRequest, imgsActiveInterval }) => {
+const Home = ({ imgsReducer, imgsRequest, imgsActiveInterval, imgDeselect }) => {
+
+  const [openModal, setOpenModal] = useState(false);
+
+  const openModalHandler = () => {
+    setOpenModal(true);
+  }
+
+  const closeModalHandler = () => {
+    setOpenModal(false);
+  }
 
   useEffect(() => {
     const requestImgs = async () => {
@@ -16,10 +26,9 @@ const Home = ({ imgsReducer, imgsRequest, imgsActiveInterval }) => {
   }, [imgsRequest]);
 
   
- /*  const imgSelectedHandler = (img) => {
-    imgSelected(img);
-    imgsActiveInterval(img);
-  } */
+ const imgDeselectHandler = () => {
+  imgDeselect();
+ }
 
   const { load, imgs, imgsActive, imgSelected } = imgsReducer;
 
@@ -28,11 +37,14 @@ const Home = ({ imgsReducer, imgsRequest, imgsActiveInterval }) => {
       <>
         <ListImgs imgs={imgs} 
           imgsActiveInterval={imgsActiveInterval} 
-          imgsActive={imgsActive} />
+          imgsActive={imgsActive} 
+          openModalHandler={openModalHandler} />
         {
-          imgSelected
+          imgSelected && openModal
           ?
-          <ModalImg />
+          <ModalImg imgSelected={imgSelected} 
+            imgDeselectHandler={imgDeselectHandler}
+            closeModalHandler={closeModalHandler} />
           :
           null
         }

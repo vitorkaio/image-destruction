@@ -5,7 +5,7 @@ import { faFire } from '@fortawesome/free-solid-svg-icons';
 
 import { IconFireOffColor, IconFireOnColor } from 'components/ui/Colors';
 
-const ListImgs = ({ imgs, imgsActiveInterval, imgsActive }) => {
+const ListImgs = ({ imgs, imgsActiveInterval, imgsActive, openModalHandler }) => {
 
   const [colorIconActive, setColorIconActive] = useState("");
 
@@ -21,6 +21,7 @@ const ListImgs = ({ imgs, imgsActiveInterval, imgsActive }) => {
 
   // Seleciona uma imagem.
   const selectImgHandler = (img) => {
+    openModalHandler();
     imgsActiveInterval(img);
   }
 
