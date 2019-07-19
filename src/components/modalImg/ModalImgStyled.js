@@ -20,7 +20,7 @@ export const ModalImgCss = styled.div`
   background-color: ${BackgroundColorPrimary};
   border: 1px solid ${BorderColor};
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-  animation: zoomIn 0.6s ease-out forwards;
+  animation: zoomIn 0.6s ease-out both;
 
 `;
 

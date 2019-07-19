@@ -9,7 +9,6 @@ const arrayInterval = [];
 
 const startInterval = (id, timer) => {
   return setInterval(() => {
-    console.log("start interval: ", id);
     // stores.dispatch(imgsActions.imgsActiveInterval(""));
     const img = [...stores.getState().imgsReducer.imgsActive];
     const arrayImage = img.filter((item) => item.data.id === id);
@@ -42,7 +41,6 @@ const stopInterval = (id) => {
       clearInterval(interval);
       arrayInterval.splice(cont, 1);
       stores.dispatch(imgsActions.imgsRemoveInterval(id));
-      console.log("Finish: ", id);
       // console.log(arrayInterval);
     }
   }

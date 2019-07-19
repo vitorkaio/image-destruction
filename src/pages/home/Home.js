@@ -5,6 +5,7 @@ import * as imgsActions from 'store/modules/imgs/actions';
 import { HomeWrapper, LoadingWrapper } from './HomeStyled';
 import ListImgs from 'components/listImgs/ListImgs';
 import ModalImg from 'components/modalImg/ModalImg';
+import BackDrop from 'components/modalImg/backDrop/BackDrop';
 
 const Home = ({ imgsReducer, imgsRequest, imgsActiveInterval }) => {
 
@@ -38,8 +39,11 @@ const Home = ({ imgsReducer, imgsRequest, imgsActiveInterval }) => {
         {
           imgSelected && openModal
           ?
+          <>
           <ModalImg imgSelected={imgSelected} 
             closeModalHandler={closeModalHandler} />
+          <BackDrop closeModal={closeModalHandler} />
+          </>
           :
           null
         }
