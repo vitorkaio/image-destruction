@@ -13,3 +13,5 @@ export const imgsRemoveInterval = (id) => action(typeActions.IMGS_REMOVE_INTERVA
 
 export const imgSelected = (img) => action(typeActions.IMG_SELECTED, { img });
 export const imgDeselect = () => action(typeActions.IMG_DESELECT);
+
+export const imgDelete = (id) => action(typeActions.IMG_DELETE, { id });

@@ -20,7 +20,7 @@ const startInterval = (id, timer) => {
     if (image) {
       // console.log(image.timer);
       if (image.timer === 0) {
-        stopInterval(image.data.id)
+        stopInterval(image.data.id);
       }
       else {
         const newImg = {

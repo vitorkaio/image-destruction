@@ -10,3 +10,5 @@ export const IMGS_REMOVE_INTERVAL = 'IMGS_REMOVE_INTERVAL';
 
 export const IMG_SELECTED = 'IMG_SELECTED';
 export const IMG_DESELECT = 'IMG_DESELECT';
+
+export const IMG_DELETE = 'IMG_DELETE';

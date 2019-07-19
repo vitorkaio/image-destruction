@@ -35,7 +35,11 @@ const imgsReducer = (state = imgsInitial, action) => {
       imgs.push(action.payload.img);
 
       const imgActiveSelected = state.imgSelected;
-      const updateImageSelected =  action.payload.img.data.id === imgActiveSelected.data.id ? action.payload.img : imgActiveSelected;
+      let updateImageSelected = null;
+
+      if (imgActiveSelected) {
+        updateImageSelected =  action.payload.img.data.id === imgActiveSelected.data.id ? action.payload.img : imgActiveSelected;
+      }
       
       return {
         ...state, imgsActive: [...imgs], imgSelected: updateImageSelected
@@ -43,12 +47,21 @@ const imgsReducer = (state = imgsInitial, action) => {
     }
 
     case typeActions.IMGS_REMOVE_INTERVAL: {
-      const imgs = [...state.imgsActive];
-      const index = imgs.map((item) => item.data.id).indexOf(action.payload.id);
-      imgs.splice(index, 1);
+      const imgsActive = [...state.imgsActive];
+      let index = imgsActive.map((item) => item.data.id).indexOf(action.payload.id);
+      imgsActive.splice(index, 1);
+
+      const imgs = [...state.imgs];
+      index = imgs.map((item) => item.id).indexOf(action.payload.id);
+      imgs.splice(index, 1); 
+
+      let imgSelected = null;
+      if (state.imgSelected) {
+        imgSelected = state.imgSelected.timer === 0 ? null : state.imgSelected;
+      }
 
       return {
-        ...state, imgsActive: [...imgs]
+        ...state, imgsActive: [...imgsActive], imgs: [...imgs], imgSelected: imgSelected
       }
     }
 
